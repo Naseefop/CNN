@@ -1,3 +1,6 @@
+##python script to convert multiple json files from labelme annotation tool to single 'via_region_data.json' file.
+
+
 import os
 import urllib.request
 import shutil
@@ -55,46 +58,7 @@ def area(ann):
 
 
 ## Path to the folder with json files
-
-Json_path="D:/mask_data/test/json" ## TODO
-
-
-
-
-##coco_format['info']={}
-##coco_format['info']['contributor']="Naseef"
-##coco_format['info']['date_created']='TODO'
-##coco_format['info']['description']='TODO'
-##coco_format['info']['url']='TODO'
-##coco_format['info']['version']=1
-##coco_format['info']['year']=2020
-
-
-##
-##coco_format['filename']=[]
-##coco_format['regions']=[]
-##coco_format['size']=[]
-##Filling categories:
-
-# It's better to put a loop here: This is just for clarification:
-
-#coco_format['categories'].append({})
-##coco_format['categories'].append({})
-##coco_format['categories'].append({})
-
-
-#coco_format['categories'][0]['supercategory']='rod'
-#coco_format['categories'][0]['id']=1
-#coco_format['categories'][0]['name']='rod'
-
-##coco_format['categories'][1]['supercategory']='class2'
-##coco_format['categories'][1]['id']=2
-##coco_format['categories'][1]['name']='class3'
-##
-##coco_format['categories'][2]['supercategory']='class3'
-##coco_format['categories'][2]['id']=3
-##coco_format['categories'][2]['name']='class3'
-
+Json_path="\Path to the folder with json files" ## TODO
 ## Filling images and annotations:
 
 image_id=1
@@ -167,32 +131,14 @@ for f in os.listdir(Json_path):
         regions[label_id]=id
         coco_format['regions']=regions
 
-
-##        if l['label']=='rod':
-##            label['category_id']=1
-##        if l['label_class']=='class2':
-##            label['category_id']=2
-##        if l['label_class']=='class3':
-##            label['category_id']=3
-##        
-##        v=processVertices(l['points'])
-##        #print(v)
-##
-##        #label['all_points_x']=v[0]
-##        #label['all_points_y']=v[1]
-##        label['segmentation']=processVertices(l['points'])
-##        label['area']=area(v)
-##        label['bbox']=bbox(v)
         
 
         label_id+=1
 
-        #print("label", label)
-        #coco_format['annotations'].append(label)
 
     vgg_format[f[:-5]+'.jpg-1']=coco_format
     image_id+=1
 
 
-with open("D:/mask_data/test/json/test1.json",'w') as fp:
+with open("path to file/via_region_data.json",'w') as fp: ##TODO
     json.dump(vgg_format,fp)
